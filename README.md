@@ -17,7 +17,7 @@ Try to generate phone at: https://generatephonenumber.web.app/
 - Spring Boot 3.x
 - Spring Data JPA
 - MySQL
-- Java 17
+- Java 21
 
 ### Frontend
 - React 18
@@ -28,7 +28,7 @@ Try to generate phone at: https://generatephonenumber.web.app/
 ## Setup Instructions
 
 ### Prerequisites
-- Java 17 or higher
+- Java 21 or higher
 - Node.js and npm
 - MySQL database
 
