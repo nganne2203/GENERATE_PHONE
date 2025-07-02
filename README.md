@@ -2,6 +2,8 @@
 
 A full-stack application for generating unique Vietnamese phone numbers. The application uses Spring Boot for the backend and React for the frontend.
 
+Try to generate phone at: https://generatephonenumber.web.app/
+
 ## Features
 
 - Generate unique Vietnamese phone numbers
