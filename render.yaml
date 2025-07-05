@@ -13,7 +13,7 @@ services:
       - key: DATABASE_USERNAME
         value: adminuser@phonegen-mysql
       - key: DATABASE_PASSWORD
-        value: Password123@
+        sync: false
       - key: SPRING_PROFILES_ACTIVE
         value: prod
     healthCheckPath: /actuator/health
