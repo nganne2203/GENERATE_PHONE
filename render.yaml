@@ -6,7 +6,7 @@ services:
     region: singapore
     plan: free
     buildCommand: cd backend && ./mvnw clean install -DskipTests
-    startCommand: cd backend && java -jar target/*.jar
+    dockerfilePath: ./backend/Dockerfile
     envVars:
       - key: DATABASE_URL
         value: jdbc:mysql://phonegen-mysql.mysql.database.azure.com:3306/phone_number_generator?useSSL=true&serverTimezone=UTC
