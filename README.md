@@ -2,6 +2,8 @@
 
 A full-stack application for generating unique Vietnamese phone numbers. The application uses Spring Boot for the backend and React for the frontend.
 
+Try to generate phone at: https://generatephonenumber.web.app/
+
 ## Features
 
 - Generate unique Vietnamese phone numbers
@@ -15,7 +17,7 @@ A full-stack application for generating unique Vietnamese phone numbers. The app
 - Spring Boot 3.x
 - Spring Data JPA
 - MySQL
-- Java 17
+- Java 21
 
 ### Frontend
 - React 18
@@ -26,7 +28,7 @@ A full-stack application for generating unique Vietnamese phone numbers. The app
 ## Setup Instructions
 
 ### Prerequisites
-- Java 17 or higher
+- Java 21 or higher
 - Node.js and npm
 - MySQL database
 
