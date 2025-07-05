@@ -2,7 +2,7 @@ services:
   # Backend API Service
   - type: web
     name: phone-generator-api
-    env: java
+    runtime: java
     region: singapore
     plan: free
     buildCommand: cd backend && ./mvnw clean install -DskipTests
@@ -17,20 +17,19 @@ services:
       - key: PORT
         value: 8080
       - key: JAVA_VERSION
-        value: 17
+        value: 21
     healthCheckPath: /actuator/health
     autoDeploy: true
 
   # Frontend Service
   - type: web
     name: phone-generator-frontend
-    env: node
+    runtime: static
     region: singapore
     plan: free
     buildCommand: cd frontend && npm install && npm run build
-    startCommand: cd frontend && npm run preview
+    staticPublishPath: ./frontend/dist
     envVars:
       - key: VITE_API_URL
         value: https://phone-generator-api.onrender.com
-    staticPublishPath: ./frontend/dist
     autoDeploy: true 
