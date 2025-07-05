@@ -10,5 +10,10 @@ WORKDIR /app
 RUN apk add --no-cache mysql-client curl iputils
 
 COPY --from=build /app/target/*.jar app.jar
+
+# Set environment variables
+ENV SPRING_PROFILES_ACTIVE=prod
+ENV PORT=8080
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"] 
+CMD ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"] 

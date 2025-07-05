@@ -8,12 +8,6 @@ services:
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     envVars:
-      - key: DATABASE_URL
-        value: jdbc:mysql://phonegen-mysql.mysql.database.azure.com:3306/phone_number_generator?useSSL=true&requireSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      - key: DATABASE_USERNAME
-        value: adminuser@phonegen-mysql
-      - key: DATABASE_PASSWORD
-        sync: false
       - key: SPRING_PROFILES_ACTIVE
         value: prod
       - key: PORT
