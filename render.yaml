@@ -5,8 +5,8 @@ services:
     runtime: docker
     region: singapore
     plan: starter
-    buildCommand: cd backend && ./mvnw clean install -DskipTests
     dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
     envVars:
       - key: DATABASE_URL
         value: jdbc:mysql://phonegen-mysql.mysql.database.azure.com:3306/phone_number_generator?useSSL=true&serverTimezone=UTC
