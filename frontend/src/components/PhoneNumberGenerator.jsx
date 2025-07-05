@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import './PhoneNumberGenerator.css';
 
-const API_BASE_URL = 'http://localhost:8080/api/phone-numbers';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/phone-numbers';
 
 function PhoneNumberGenerator() {
   const [quantity, setQuantity] = useState(1);
@@ -33,7 +33,10 @@ function PhoneNumberGenerator() {
     setError('');
     
     try {
-      const response = await axios.post(`${API_BASE_URL}/generate`, {
+      const apiUrl = `${API_BASE_URL}/api/phone-numbers/generate`;
+      console.log('Calling API:', apiUrl);
+      
+      const response = await axios.post(apiUrl, {
         quantity: quantity
       });
       
