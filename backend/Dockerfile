@@ -1,23 +1,10 @@
-FROM eclipse-temurin:21-jdk
-
+FROM maven:3.9-eclipse-temurin-21-focal AS build
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# First copy the Maven wrapper and pom.xml
-COPY ./pom.xml ./
-COPY ./mvnw ./
-COPY ./.mvn ./.mvn
-
-# Build the application
-RUN ./mvnw dependency:go-offline -B
-
-# Copy the source code
-COPY ./src ./src
-
-# Package the application
-RUN ./mvnw package -DskipTests
-
-# Set environment variables
-ENV JAVA_OPTS=""
-
-# Run the application
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar target/*.jar"] 
+FROM eclipse-temurin:21-jre-focal
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"] 
