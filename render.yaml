@@ -2,7 +2,7 @@ services:
   # Backend API Service
   - type: web
     name: phone-generator-api
-    runtime: java
+    runtime: docker
     region: singapore
     plan: free
     buildCommand: cd backend && ./mvnw clean install -DskipTests
@@ -25,7 +25,6 @@ services:
   - type: web
     name: phone-generator-frontend
     runtime: static
-    region: singapore
     plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
