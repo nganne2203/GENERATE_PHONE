@@ -5,10 +5,10 @@ RUN mvn clean package -DskipTests
 
 FROM amazoncorretto:21-alpine
 WORKDIR /app
+
+# Install MySQL client and network tools
+RUN apk add --no-cache mysql-client curl iputils
+
 COPY --from=build /app/target/*.jar app.jar
-
-# Add MySQL JDBC driver
-RUN apk add --no-cache mysql-client
-
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"] 
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"] 
